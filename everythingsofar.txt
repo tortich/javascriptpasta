@@ -1,0 +1,204 @@
+//~ //~ ARRAYS
+var mack = [];
+mack.push("Mack");
+mack.push("the");
+mack.push("Knife");
+show(mack.join(" "));
+show(mack.pop());
+show(mack);
+//~ .push()   => Adds a value to the array
+//~ .join(" ")  => concatenates all strings of the
+//~                   array to a single string using what
+//~                   is between the " " as delimiter
+//~ .pop()     => deletes and returns the last value
+//~                    of the array
+
+
+//~ //~ DATE CONSTRUCTOR
+show(new Date());
+show(new Date(1980, 1, 1));
+show(new Date(2007, 2, 30, 8, 20, 30));
+//~ As you can see, these objects can store a time
+//~ of day as well as a date. When not given any
+//~ arguments, an object representing the current
+//~ time and date is created. Arguments can be
+//~ given to ask for a specific date and time.
+//~
+//~ The order of the arguments is
+//~   year,
+//~   month,
+//~   day,
+//~   hour,
+//~   minute,
+//~   second,
+//~   milliseconds.
+//~ These last four are optional and become 0
+//~ when not given.
+//~
+//~ The month numbers these objects use go from
+//~ 0 to 11, which can be confusing. Especially
+//~ since day numbers do start from 1.
+var today = new Date();
+today.getFullYear();    // Year
+today.getMonth();       // Month
+today.getDate();         // Day
+today.getHours();       // Hours
+today.getMinutes();    // Minutes
+today.getSeconds();   // Seconds
+today.getDay();          // Day of Week
+today.getTime();         // Seconds since 1970, Jan 1st
+today.getTimezoneOffset() // returns how many minutes
+                                      // it differs from GMT
+//~ All of these work with .set as well (execpt: setDate())
+//~ to change the corresponding values
+
+
+//~ //~ FOR LOOPS
+//~ The part before the first semicolon initialises the
+//~ loop, usually by defining a variable.
+//~ The second part is the expression that checks
+//~ whether the loop must still continue.
+//~ The final part updates the state of the loop.
+//~ In most cases this is shorter
+//~ and clearer than a while construction.
+for (var number = 0; number <= 12; number = number + 2)
+  show(number);
+//~
+//~ Looping through all elements of an array
+for (var cat in livingCats)
+  print(cat);
+
+
+//~ //~ MESSAGE BOXES
+//~ Infobox
+alert("Whatever");
+//~
+//~ OK CANCEL
+//~ returns true for OK or false for CANCEL
+show(confirm("Shall we, then?"));
+//~
+//~ Get User Input
+//~ prompt can be used to ask an 'open' question.
+//~ The first argument is the question, the second
+//~ one is the text that the user starts with.
+//~ A line of text can be typed into the window, and
+//~ the function will return this as a string.
+show(prompt("Tell us everything you know.", "..."));
+
+
+//~ //~ OBJECTS
+var cat = {colour: "grey", name: "Spot", size: 46};
+show(cat.size);
+delete cat.size;  // deletes the value
+show(cat);
+cat.weight = 12; // creates a new value inside the object
+show(cat);
+ //~
+//~ Properties whose names are not valid variable
+//~ names have to be quoted when creating the object,
+//~ and approached using brackets:
+ //~
+var thing = {"gabba gabba": "hey", "5": 10};
+show(thing["5"]);
+thing["5"] = 20;
+show(thing[2 + 3]);
+delete thing["gabba gabba"];
+ //~
+//~ As you can see, the part between the brackets can
+//~ be any expression. It is converted to a string to
+//~ determine the property name it refers to. One can
+//~ even use variables to name properties:
+ //~
+var propertyName = "length";
+var text = "mainline";
+show(text[propertyName]);
+ //~
+//~ The operator in can be used to test whether an
+//~ object has a certain property. It produces a boolean.
+ //~
+var chineseBox = {};
+chineseBox.content = chineseBox;
+show("content" in chineseBox); // true
+show("content" in chineseBox.content); // true
+
+
+//~ //~ GETTING PROPERTIES OF OBJECTS / STRINGS
+//~ There are two ways of accessing properties
+var text = "purple haze";
+show(text["length"]);
+show(text.length);
+//~ The second way is a shorthand for the first, and
+//~ it only works when the name of the property would
+//~ be a valid variable name ― when it doesn't have
+//~ any spaces or symbols in it and does not start
+//~ with a digit character.
+typeof variable;
+//~ returns the type of the variable / object
+string.toUpperCase;
+//~ returns the string with all uppercase letters
+string.toLowerCase;
+//~ returns the string with all lowercase letters
+string.split(" ");
+//~ splits the string at each occurence of " " and
+//~ returns these in an array
+string.charAt(number);
+//~ returns the "number"-th character of the string
+//~ 0 gives the first character, 1 the second, etc.
+//~ charAt returns "" if there is no character at the
+//~ specified position
+string.slice(0, 4);
+//~ Slice copies out a piece of the string, starting
+//~ from the character at the position given by the
+//~ first argument, and ending before (not including)
+//~ the character at the position given by the second one.
+//~ Slice leaves out parts that are not present in
+//~ the string (eg: word has 3 characters, but slice
+//~ is asked to return the first 5 characters. It will
+//~ omit character 4 and 5 and only return chars 1-3)
+string.slice(4);
+//~ Similar to above. When only given one argument,
+//~ slice will return everything from that position
+//~ to the end of the string
+string.indexOf("x");
+//~ Returns the index of the first (!) occurence of x
+//~ in the string. x can be as long as needed.
+string.indexOf("x", "y");
+//~ Similar to above. Starts looking for the occurence
+//~ after the y-th position.
+
+
+//~ //~ MATH FUNCTIONS
+cos, sin, tan, acos, asin, atan
+PI and E are constants
+pow // power functions; it also accepts negative
+      //~ and fractional exponents.
+sqrt // takes square roots.
+max, min // give the maximum or minimum of
+              //~ two values.
+round, floor,  ceil // round numbers to the closest
+                        //~ whole number, the whole number
+                        //~ below it, and the whole number
+                        //~ above it respectively.
+
+
+//~ //~ VARIABLE CONVERSION
+//~ Converts a string into a number type
+Number(STRING)
+//~
+//~ Converts a number into a string type
+String(NUMBER)
+//~
+//~ Converts a number into a boolean type
+//~ 0, NaN and the empty string count as false
+//~ all the other values count as true
+Boolean(NUMBER)
+
+
+//~ //~ FORBIDDEN / RESERVED NAMES
+abstract boolean break byte case catch char class const continue
+debugger default delete do double else enum export extends false
+final finally float for function goto if implements import in
+instanceof int interface long native new null package private
+protected public return short static super switch synchronized
+this throw throws transient true try typeof var void volatile
+while with
